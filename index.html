@@ -1,25 +1,40 @@
 <html>
-	<head>
-	<script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>
-	<script>
+<head>
+<script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>
+<script>
   	var vConsole = new VConsole();
   	console.log('Hello world');
-	</script>
-	</head>
-	<h1>
-		prim number
-	</h1>
-	<input type="button" onclick="show()" value="Run">
-	<p>
-	<a id = "result"></a>
-	</p>
-	<script>
-		var i = 9
-		function pow(i) {
-			return i * i;
-		}
-		function show() {
-		document.getElementById('result').innerHTML = "result: " + pow(i);
-		}
-	</script>
+</script>
+</head>
+<h1>
+	prime numbers within n
+</h1>
+<p>
+<a id = "prompt">Please input a range.</a>
+</p>
+<input id = "range"  type="text" value="">
+<input type="button" onclick="show()" value="Run">
+<p>
+<a id = "result"></a>
+</p>
+<script>
+	function isPrime(n) {
+	var arr = [n]
+	for(let i = 0; i < n; i++) arr[i] = i + 1;
+	console.log(arr);
+		var primes = arr.filter(function(n) {
+			for(let j = 2; j <= Math.sqrt(n); j++) {
+				if(n % j == 0) return false;
+				}
+			return n > 1;
+		});
+		console.log(primes);
+		return primes.toString();
+	}
+	function show() {
+	var range = document.getElementById('range').value;
+	var n = parseInt(range);
+	document.getElementById('result').innerHTML = "result: " + isPrime(n);
+	}
+</script>
 </html>
