@@ -3,3 +3,4 @@ javascript
 first
 termux
 kali
+fedora
