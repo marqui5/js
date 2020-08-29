@@ -1,6 +1,8 @@
 <html>
 <head>
 <script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>
+<script src="./sieve.js"></script>
+<script src="./linear.js"></script>
 <script>
   	var vConsole = new VConsole();
   	console.log('Hello world');
@@ -13,9 +15,23 @@
 <a id = "prompt">Please input a range.</a>
 </p>
 <input id = "range"  type="text" value="">
-<input type="button" onclick="show()" value="Run">
 <p>
-<a id = "result"></a>
+<input type="button" onclick="normal()" value="Run as normal method">
+</p>
+<p>
+<input type="button" onclick="sieve()" value="Run  as sieve of Eratosthenes method">
+</p>
+<p>
+<input type="button" onclick="linear()" value="Run as sieve of linear method">
+</p>
+<p>
+<a id = "normalResult"></a>
+</p>
+<p>
+<a id = "sieveResult"></a>
+</p>
+<p>
+<a id = "linearResult"></a>
 </p>
 <script>
 	function getPrime(n) {
@@ -31,10 +47,17 @@
 		console.log(primes);
 		return primes.toString();
 	}
-	function show() {
-		var range = document.getElementById('range').value;
-		var n = parseInt(range);
-		document.getElementById('result').innerHTML = "result: " + getPrime(n);
+	function normal() {
+		let n = parseInt(document.getElementById('range').value);
+		document.getElementById('normalResult').innerHTML = "normal: " + getPrime(n);
+	}
+	function sieve() {
+		let n = parseInt(document.getElementById('range').value);
+		document.getElementById('sieveResult').innerHTML = "sieve: " + sievePrime(9);
+	}
+	function linear() {
+		let n = parseInt(document.getElementById('range').value);
+		document.getElementById('linearResult').innerHTML = "linear: " + linearPrime(100);
 	}
 </script>
 </html>
