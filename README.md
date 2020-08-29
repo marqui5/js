@@ -2,3 +2,4 @@
 javascript
 first
 termux
+kali
