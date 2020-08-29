@@ -19,9 +19,9 @@
 </p>
 <script>
 	function isPrime(n) {
-	var arr = [n]
-	for(let i = 0; i < n; i++) arr[i] = i + 1;
-	console.log(arr);
+		var arr = [n]
+		for(let i = 0; i < n; i++) arr[i] = i + 1;
+		console.log(arr);
 		var primes = arr.filter(function(n) {
 			for(let j = 2; j <= Math.sqrt(n); j++) {
 				if(n % j == 0) return false;
@@ -32,9 +32,9 @@
 		return primes.toString();
 	}
 	function show() {
-	var range = document.getElementById('range').value;
-	var n = parseInt(range);
-	document.getElementById('result').innerHTML = "result: " + isPrime(n);
+		var range = document.getElementById('range').value;
+		var n = parseInt(range);
+		document.getElementById('result').innerHTML = "result: " + isPrime(n);
 	}
 </script>
 </html>
