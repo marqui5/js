@@ -3,6 +3,7 @@
 <script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>
 <script src="./sieve.js"></script>
 <script src="./linear.js"></script>
+<script src="./es6prime.js"></script>
 <script>
   	var vConsole = new VConsole();
   	console.log('Hello world');
@@ -19,10 +20,13 @@
 <input type="button" onclick="normal()" value="Run as normal method">
 </p>
 <p>
-<input type="button" onclick="sieve()" value="Run  as sieve of Eratosthenes method">
+<input type="button" onclick="sieve()" value="Run  as sieve of Eratosthenes">
 </p>
 <p>
-<input type="button" onclick="linear()" value="Run as sieve of linear method">
+<input type="button" onclick="linear()" value="Run as sieve of Euler">
+</p>
+<p>
+<input type="button" onclick="es6prime()" value="Run as sieve of ES6">
 </p>
 <p>
 <a id = "normalResult"></a>
@@ -33,31 +37,48 @@
 <p>
 <a id = "linearResult"></a>
 </p>
+<p>
+<a id = "es6Result"></a>
+</p>
 <script>
 	function getPrime(n) {
 		var arr = [n]
 		for(let i = 0; i < n; i++) arr[i] = i + 1;
-		console.log(arr);
-		var primes = arr.filter(function(n) {
-			for(let j = 2; j <= Math.sqrt(n); j++) {
-				if(n % j == 0) return false;
+		return arr.filter(x => {
+			for(let j = 2; j <= Math.sqrt(x); j++) {
+			//for(let j = 2; j * j <= x; j++) {
+				if(x % j == 0) return false;
 				}
-			return n > 1;
-		});
-		console.log(primes);
-		return primes.toString();
+			return x > 1;
+		}).toString();
 	}
 	function normal() {
 		let n = parseInt(document.getElementById('range').value);
-		document.getElementById('normalResult').innerHTML = "normal: " + getPrime(n);
+		let start = Date.now();
+		let prime = getPrime(n);
+		let stop = Date.now();
+		document.getElementById('normalResult').innerHTML = "time: " + (stop - start) + " | normal: " + prime;
 	}
 	function sieve() {
 		let n = parseInt(document.getElementById('range').value);
-		document.getElementById('sieveResult').innerHTML = "sieve: " + sievePrime(9);
+		let start = Date.now();
+		let prime = sievePrime(n);
+		let stop = Date.now();
+		document.getElementById('sieveResult').innerHTML = "time: " + (stop - start) + " | sieve: " + prime;
 	}
 	function linear() {
 		let n = parseInt(document.getElementById('range').value);
-		document.getElementById('linearResult').innerHTML = "linear: " + linearPrime(100);
+		let start = Date.now();
+		let prime = linearPrime(n);
+		let stop = Date.now();
+		document.getElementById('linearResult').innerHTML = "time: " + (stop - start) + " | linear: " + prime;
+	}
+	function es6prime() {
+		let n = parseInt(document.getElementById('range').value);
+		let start = Date.now();
+		let prime = es6Prime(n);
+		let stop = Date.now();
+		document.getElementById('es6Result').innerHTML = "time: " + (stop - start) + " | es6prime: " + prime;
 	}
 </script>
 </html>
