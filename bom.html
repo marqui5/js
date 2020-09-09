@@ -55,10 +55,28 @@
 <input type="button" onclick="platform()" value="Platform">
 </p>
 <p>
+<input type="button" onclick="clearTimer1()" value="Clear timeout">
+</p>
+<p>
+<input type="button" onclick="setTimer2()" value="Set interval">
+</p>
+<p>
+<input type="button" onclick="clearTimer2()" value="Clear interval">
+</p>
+<p>
 <a id = "onload"></a>
 </p>
 <p>
 <a id = "onscroll"></a>
+</p>
+<p>
+<a id = "docscroll"></a>
+</p>
+<p>
+<a id = "timer1"></a>
+</p>
+<p>
+<a id = "timer2"></a>
 </p>
 <p>
 <a id = "width"></a>
@@ -90,10 +108,31 @@
 <script>
 	window.onload = function() {
 		document.getElementById('onload').innerHTML = "this page load finish";
-		}
+	}
+	var timer1 = setTimeout(function() {
+		document.getElementById('timer1').innerHTML = "timeout";
+		}, 10000);
+	function clearTimer1() {
+		clearTimeout(timer1);
+		document.getElementById('timer1').innerHTML = "clear timeout";
+	}
+	function setTimer2() {
+		var timer2 = setInterval(function() {
+			document.getElementById('timer2').innerHTML = "interval timeout: " + timer2;
+		}, 10000);
+	}
+	function clearTimer2() {
+		clearInterval(timer2);
+		document.getElementById('timer2').innerHTML = "clear interval: " + timer2;
+	}
 	window.onscroll = function() {
-		document.getElementById('onscroll').innerHTML = "broswer scrolled";
-		}
+		/*var docTop = document.documentElment.scrollTop;
+		var docLeft = document.documentElment.scrollLeft;
+		document.getElementById('docscroll').innerHTML = "page scrolled" + " docTop: " + docTop + " docLeft : " + docLeft;*/
+		var bodyTop = document.body.scrollTop;
+		var bodyLeft = document.body.scrollLeft;
+		document.getElementById('onscroll').innerHTML = "page scrolled" +  " bodyTop: " + bodyTop +  " bodyLeft: " + bodyLeft;
+	}
 	function width() {
 		var w = window.innerWidth(); //no mobile
 		document.getElementById('width').innerHTML = w;
