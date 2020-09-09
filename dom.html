@@ -1,0 +1,137 @@
+<html>
+<head>
+<!--
+<script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>
+-->
+<script>
+	console.log("DOM")
+</script>
+
+<title>DOM</title>
+</head>
+<h1>
+	DOM(Document Object Model)
+</h1>
+<div id='box' class="box" a="100">
+<p>
+<span>hello</span>
+</p>
+</div>
+<p>
+<input type="button" onclick="getid()" value="getElementById">
+<input type="button" onclick="cn()" value="getElementByClassName">
+<input type="button" onclick="tag()" value="getElementsByTagName">
+</p>
+<p>
+<input type="button" onclick="qs()" value="querySelector">
+<input type="button" onclick="qsall()" value="querySelectorAll">
+<input type="button" onclick="inner()" value="innerHTML">
+<input type="button" onclick="intxt()" value="innerText">
+<input type="button" onclick="addstyle()" value="addStyle">
+</p>
+<p>
+<input type="button" onclick="getattr()" value="getAttribute">
+<input type="button" onclick="setattr()" value="setAttribute">
+<input type="button" onclick="rmattr()" value="removeAttribute">
+<input type="button" onclick="claz()" value="className">
+</p>
+<p>
+<a id = "getid"></a>
+</p>
+<p>
+<a id = "cn"></a>
+</p>
+<p>
+<a id = "tag"></a>
+</p>
+<p>
+<a id = "qs"></a>
+</p>
+<p>
+<a id = "qsall"></a>
+</p>
+<p>
+<a id = "inner"></a>
+</p>
+<p>
+<a id = "intxt"></a>
+</p>
+<p>
+<a id = "attr"></a>
+</p>
+<script>
+	function getid() {
+		var box = document.getElementById('box');
+		document.getElementById('getid').innerHTML = box;
+	}
+	function cn() {  //no mobile
+		var classbox = document.getElementByClassName('box');
+		document.getElementById('cn').innerHTML = classbox[0];
+	}
+	function tag() {
+		var tag = document.getElementsByTagName('div');
+		document.getElementById('tag').innerHTML = tag[0];
+	}
+	function qs() {
+		// 获取页面中的第一个 div 元素
+		var qs = document.querySelector('div');
+		console.log(qs);
+		// 获取页面中第一个有 box 类名的元素
+		var qsclass = document.querySelector('.box');
+		console.log(qsclass);
+		//获取页面中第一个 id 名为 box 的元素
+		var qsid = document.querySelector('#box');
+		console.log(qsid);
+		document.getElementById('qs').innerHTML = qsid;
+	}
+	function qsall() {
+		// 获取页面中的所有的 div 元素
+		var qsall = document.querySelectorAll('div');
+		console.log(qsall);
+		// 获取页面中所有有 box 类名的元素
+		var qsaclass = document.querySelectorAll('.box');
+		console.log(qsaclass);
+		document.getElementById('qsall').innerHTML = qsaclass;
+	}
+	function inner() {
+		var div = document.querySelector('div');
+		document.getElementById('inner').innerHTML = div.innerHTML;
+		div.innerHTML = "<span>world</span>";
+	}
+	function intxt() {
+		var div = document.querySelector('div');
+		document.getElementById('intxt').innerHTML = div.innerText;
+		div.innerText = "Hello,World!";
+	}
+	function getattr() {
+		var div = document.querySelector('div');
+		var attr1 = div.getAttribute('a');
+		var attr2 = div.getAttribute('class')
+		document.getElementById('attr').innerHTML = "a: " + attr1 + "  class: " + attr2;
+	}
+	function setattr() {
+		var div = document.querySelector('div');
+		var attr1 = div.setAttribute('a', 80);
+		var attr2 = div.setAttribute('class', 'xbox')
+		document.getElementById('attr').innerHTML = "Set attribute seccess, please get again.";
+	}
+	function rmattr() {
+		var div = document.querySelector('div');
+		var attr1 = div.removeAttribute('a');
+		var attr2 = div.removeAttribute('class')
+		document.getElementById('attr').innerHTML = "Remove attribute seccess, please get again.";
+	}
+	function addstyle() {
+		var div = document.querySelector('div');
+		div.style.width = "100px";
+		div.style.height = "100px";
+		div.style.backgroundColor = "pink";
+	}
+	function claz() {
+		var div = document.querySelector('div');
+		var claz = div.className;
+		document.getElementById('attr').innerHTML = "class name: " + claz;
+		div.className = "xbox360";
+	}
+</script>
+</html>
