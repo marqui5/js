@@ -1,0 +1,149 @@
+<html>
+<head>
+<!--
+<script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>
+-->
+<script>
+	console.log("log")
+</script>
+
+<title>BOM</title>
+</head>
+<h1>
+	BOM(Browser Object Model)
+</h1>
+<p>
+<input type="button" onclick="width()" value="Get width">
+</p>
+<p>
+<input type="button" onclick="height()" value="Get height">
+</p>
+<p>
+<input type="button" onclick="pop()" value="Pop">
+</p>
+<p>
+<input type="button" onclick="ask()" value="Ask">
+</p>
+<p>
+<input type="button" onclick="prmpt()" value="Prompt">
+</p>
+<p>
+<input type="button" onclick="loc()" value="Location">
+</p>
+<p>
+<input type="button" onclick="next()" value="Next">
+</p>
+<p>
+<input type="button" onclick="fresh()" value="Fresh">
+</p>
+<p>
+<input type="button" onclick="forward()" value="forward">
+</p>
+<p>
+<input type="button" onclick="back()" value="Back">
+</p>
+<p>
+<input type="button" onclick="ua()" value="UA">
+</p>
+<p>
+<input type="button" onclick="appName()" value="App name">
+</p>
+<p>
+<input type="button" onclick="ver()" value="Version">
+</p>
+<p>
+<input type="button" onclick="platform()" value="Platform">
+</p>
+<p>
+<a id = "onload"></a>
+</p>
+<p>
+<a id = "onscroll"></a>
+</p>
+<p>
+<a id = "width"></a>
+</p>
+<p>
+<a id = "height"></a>
+</p>
+<p>
+<a id = "ask"></a>
+</p>
+<p>
+<a id = "prmpt"></a>
+</p>
+<p>
+<a id = "loc"></a>
+</p>
+<p>
+<a id = "ua"></a>
+</p>
+<p>
+<a id = "name"></a>
+</p>
+<p>
+<a id = "ver"></a>
+</p>
+<p>
+<a id = "platform"></a>
+</p>
+<script>
+	window.onload = function() {
+		document.getElementById('onload').innerHTML = "this page load finish";
+		}
+	window.onscroll = function() {
+		document.getElementById('onscroll').innerHTML = "broswer scrolled";
+		}
+	function width() {
+		var w = window.innerWidth(); //no mobile
+		document.getElementById('width').innerHTML = w;
+	}
+	function height() {
+		var h = window.innerHeight(); //no mobile
+		document.getElementById('height').innerHTML = h;
+	}
+	function pop() {
+		alert("alert");
+	}
+	function ask() {
+		var answer = window.confirm("sure?");
+		document.getElementById('ask').innerHTML = answer;
+	}
+	function prmpt() {
+		var s = window.prompt('enter sth.');
+		document.getElementById('prmpt').innerHTML = s;
+	}
+	function loc() {
+		var l = window.location.href;
+		document.getElementById('loc').innerHTML = l;
+	}
+	function next() {
+		window.location.href = "./next.html";
+	}
+	function fresh() {
+		window.location.reload();
+	}
+	function forward() {
+		window.history.forward();
+	}
+	function back() {
+		window.history.back();
+	}
+	function ua() {
+		var ua = window.navigator.userAgent;
+		document.getElementById('ua').innerHTML = ua;
+	}
+	function appName() {
+		var name = window.navigator.appName;
+		document.getElementById('name').innerHTML = name;
+	}
+	function ver() {
+		var ver = window.navigator.appVersion;
+		document.getElementById('ver').innerHTML = ver;
+	}
+	function platform() {
+		var platform = window.navigator.platform;
+		document.getElementById('platform').innerHTML = platform;
+	}
+</script>
+</html>
