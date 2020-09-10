@@ -41,8 +41,8 @@
         function draw() {
           ctx.fillStyle = 'rgba(0,0,0,0.1)';
           ctx.fillRect(0, 0, W, H);
-          ctx.fillStyle = randColor();
-          //ctx.fillStyle = '#00ff00';
+          //ctx.fillStyle = randColor();
+          ctx.fillStyle = '#00ff00';
           for (var i = 0; i < lie; i++) {
             var index = Math.floor(Math.random() * str.length);
             var x = Math.floor(fontsize * i)
