@@ -1,0 +1,44 @@
+<html>
+<head>
+<!--
+<script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>                                        -->
+<script>
+	var vConsole = new VConsole();
+	console.log("canvas");
+</script>
+<title>canvas</title>
+</head>
+<body>
+<h1>
+        canvas                           
+</h1>
+<!--手机端画布缩小10倍来渲染才能保证页面缩放到最大依然清晰-->
+<canvas id='draw' width='2000' height='2000' style="width:200px; height:200px"></canvas>
+<script>
+	var draw = document.getElementById("draw");
+	if (draw.getContext){
+	var context = draw.getContext("2d");
+	//由于画布缩小了十倍相应的图像要放大十倍
+	context.scale(10, 10);
+ 	 //开始路径  
+  	context.beginPath();
+  	//绘制外圆
+  	context.arc(100, 100, 99, 0, 2 * Math.PI, false);
+  	//绘制内圆
+  	context.moveTo(194, 100);   //如果没有这句话,则图形将从(200,0)开始绘制内圆
+  	context.arc(100, 100, 94, 0, 2 * Math.PI, false);
+  	//绘制分针
+  	context.moveTo(100, 100);
+  	context.lineTo(100, 15);
+  	//绘制时针
+  	context.moveTo(100, 100);
+  	context.lineTo(35, 100);
+  	//描边路径--显示所绘制的钟表
+  	context.stroke(); 
+	context.font = "36px";
+	context.fillStyle = "#000000000";
+	context.fillText("Clock", 90, 150)
+}
+</script>
+</body>
+</html>

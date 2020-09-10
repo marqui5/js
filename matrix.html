@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>matrix</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+</style>
+    <script>
+      window.onload = function() {
+        var H = window.innerHeight;
+        var W = window.innerWidth;
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        //canvas.height = H;
+        //canvas.width = W;
+	ctx.scale(2, 2);
+        var fontsize = 20;
+        var text = [];
+        var lie = Math.floor(W / fontsize);
+	//var str = '01'
+	//var str = '0123456789'
+        var str = '0123456789abcdeghknopqsuvxz'
+	//var str = '金钱财宝富贵安康大发横财'
+        for (var i = 0; i < lie; i++) {
+          text.push(0);
+        }
+        ctx.font = fontsize + 'px Menlo';
+
+        function draw() {
+          ctx.fillStyle = 'rgba(0,0,0,0.1)';
+          ctx.fillRect(0, 0, W, H);
+          ctx.fillStyle = randColor();
+          //ctx.fillStyle = '#00ff00';
+          for (var i = 0; i < lie; i++) {
+            var index = Math.floor(Math.random() * str.length);
+            var x = Math.floor(fontsize * i)
+            var y = text[i] * fontsize
+            ctx.fillText(str[index], x, y);
+            if (y > H && Math.random() > 0.99) {
+              text[i] = 0
+            }
+            text[i]++;
+          }
+        }
+
+        function randColor() {
+          var r = Math.ceil(Math.random() * 155) + 100;
+          var g = Math.ceil(Math.random() * 155) + 100;
+          var b = Math.ceil(Math.random() * 155) + 100;
+          return 'rgb(' + r + ',' + g + ',' + b + ')'
+        }
+        console.log(randColor())
+        var timer = setInterval(function() {
+          draw();
+        }, 1000 / 30)
+      }
+</script>
+  </head>
+  <body>
+    <canvas id="canvas" height="3840" width="2160"style="height:1920px; width:1080px">Your browser not support canvas.</canvas>
+  </body>
+</html>
