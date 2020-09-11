@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	div {
+		width: 600px;
+	}
+</style>
 <!--
 <script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>
 -->
@@ -15,11 +20,14 @@
 <h1>
 	DOM(Document Object Model)
 </h1>
-<div id='box' class="box" a="100">
+<div id='box' class="box" a="100" style="height: 20px;">
 <p>
 <span>hello</span>
 </p>
 </div>
+<ul test="ul attribute">
+<li>world</li>
+</ul>
 <p>
 <input type="button" onclick="getid()" value="getElementById">
 <input type="button" onclick="cn()" value="getElementByClassName">
@@ -37,6 +45,37 @@
 <input type="button" onclick="setattr()" value="setAttribute">
 <input type="button" onclick="rmattr()" value="removeAttribute">
 <input type="button" onclick="claz()" value="className">
+<input type="button" onclick="chno()" value="childNodes">
+</p>
+<p>
+<input type="button" onclick="chd()" value="children">
+<input type="button" onclick="firstc()" value="firstChild">
+<input type="button" onclick="lastc()" value="lastChild">
+<input type="button" onclick="firstel()" value="firstElementChild">
+<input type="button" onclick="lastel()" value="lastElementChild">
+</p>
+<p>
+<input type="button" onclick="nextsib()" value="nextSibling">
+<input type="button" onclick="presib()" value="previousSibling">
+<input type="button" onclick="nextelsib()" value="nextElementSibling">
+<input type="button" onclick="prelsib()" value="previousElementSibling">
+</p>
+<p>
+<input type="button" onclick="parentno()" value="parentNode">
+<input type="button" onclick="attr()" value="attributes">
+<input type="button" onclick="nodeattr()" value="nodeAttributes">
+<input type="button" onclick="create()" value="createElement">
+<input type="button" onclick="crtxt()" value="createTextNode">
+</p>
+<p>
+<input type="button" onclick="append()" value="appendChild">
+<input type="button" onclick="insert()" value="insertBefore">
+<input type="button" onclick="remove()" value="removeChild">
+<input type="button" onclick="replaz()" value="replaceChild">
+</p>
+<p>
+<input type="button" onclick="gets()" value="getComputedStyle">
+<input type="button" onclick="offset()" value="Offset">
 </p>
 <p>
 <a id = "getid"></a>
@@ -62,18 +101,72 @@
 <p>
 <a id = "attr"></a>
 </p>
+<p>
+<a id = "chno"></a>
+</p>
+<p>
+<a id = "chd"></a>
+</p>
+<p>
+<a id = "firstc"></a>
+</p>
+<p>
+<a id = "lastc"></a>
+</p>
+<p>
+<a id = "firstel"></a>
+</p>
+<p>
+<a id = "lastel"></a>
+</p>
+<p>
+<a id = "nextsib"></a>
+</p>
+<p>
+<a id = "presib"></a>
+</p>
+<p>
+<a id = "nextelsib"></a>
+</p>
+<p>
+<a id = "prelsib"></a>
+</p>
+<p>
+<a id = "parentno"></a>
+</p>
+<p>
+<a id = "attrs"></a>
+</p>
+<p>
+<a id = "nodeattr"></a>
+</p>
+<p>
+<a id = "create"></a>
+</p>
+<p>
+<a id = "crtxt"></a>
+</p>
+<p>
+<a id = "gets"></a>
+</p>
+<p>
+<a id = "offset"></a>
+</p>
 <script>
 	function getid() {
 		var box = document.getElementById('box');
 		document.getElementById('getid').innerHTML = box;
+		console.log(box);
 	}
 	function cn() {  //no mobile
 		var classbox = document.getElementByClassName('box');
 		document.getElementById('cn').innerHTML = classbox[0];
+		console.log(classbox);
 	}
 	function tag() {
 		var tag = document.getElementsByTagName('div');
 		document.getElementById('tag').innerHTML = tag[0];
+		console.log(tag);
 	}
 	function qs() {
 		// 获取页面中的第一个 div 元素
@@ -135,6 +228,129 @@
 		var claz = div.className;
 		document.getElementById('attr').innerHTML = "class name: " + claz;
 		div.className = "xbox360";
+	}
+	function chno() {
+		var div = document.querySelector('div');
+		document.getElementById('chno').innerHTML = div.childNodes;
+		console.log(div.childNodes);
+	}
+	function chd() {
+		var div = document.querySelector('div');
+		document.getElementById('chd').innerHTML = div.children;
+		console.log(div.children);
+	}
+	function firstc() {
+		var div = document.querySelector('div');
+		document.getElementById('firstc').innerHTML = div.firstChild;
+		console.log(div.firstChild);
+	}
+	function lastc() {
+		var div = document.querySelector('div');
+		document.getElementById('lastc').innerHTML = div.lastChild;
+		console.log(div.lastChild);
+	}
+	function firstel() {
+		var div = document.querySelector('div');
+		document.getElementById('firstel').innerHTML = div.firstElementChild;
+		console.log(div.firstElementChild);
+	}
+	function lastel() {
+		var div = document.querySelector('div');
+		document.getElementById('lastel').innerHTML = div.lastElementChild;
+		console.log(div.lastElementChild);
+	}
+	function nextsib() {
+		var div = document.querySelector('div');
+		document.getElementById('nextsib').innerHTML = div.nextSibling;
+		console.log(div.nextSibling);
+	}
+	function presib() {
+		var div = document.querySelector('div');
+		document.getElementById('presib').innerHTML = div.previousSibling;
+		console.log(div.previousSibling);
+	}
+	function nextelsib() {
+		var div = document.querySelector('div');
+		document.getElementById('nextelsib').innerHTML = div.nextElementSibling;
+		console.log(div.nextElementSibling);
+	}
+	function prelsib() {
+		var div = document.querySelector('div');
+		document.getElementById('prelsib').innerHTML = div.previousElementSibling;
+		console.log(div.previousElementSibling);
+	}
+	function parentno() {
+		var div = document.querySelector('div');
+		document.getElementById('parentno').innerHTML = div.parentNode;
+		console.log(div.parentNode);
+	}
+	function attr() {
+		var div = document.querySelector('div');
+		document.getElementById('attrs').innerHTML = div.attributes;
+		console.log(div.attributes);
+	}
+	function nodeattr() {
+		var ul = document.querySelector('ul');
+		// 获取到 ul 下的第一个子元素节点，是一个元素节点
+		var eleNode = ul.firstElementChild;
+		// 获取到 ul 的属性节点组合，因为是个组合，我们要拿到节点的话要用索引
+		var attrNode = ul.attributes[0];
+		// 获取到 ul 下的第一个子节点，是一个文本节点
+		var textNode = ul.firstChild;
+console.log(eleNode.nodeType) // 1   元素节点
+console.log(attrNode.nodeType) // 2  属性节点
+console.log(textNode.nodeType) // 3  注释节点
+console.log(eleNode.nodeName) // LI  大写标签名
+console.log(attrNode.nodeName) // test 属性名
+console.log(textNode.nodeName) // #text 文本节点nodeName 都是#text
+console.log(eleNode.nodeValue) // null 元素节点没有 nodeValue
+console.log(attrNode.nodeValue) // ul attributes 属性值
+console.log(textNode.nodeValue) // 换行 + 空格  文本内容
+		document.getElementById('nodeattr').innerHTML = attrNode.nodeValue;
+	}
+	function create() {
+		var div = document.createElement('div');
+		document.getElementById('create').innerHTML = div;
+		console.log(div);
+	}
+	function crtxt() {
+		var txt = document.createTextNode('createTextNode');
+		document.getElementById('crtxt').innerHTML = txt;
+		console.log(txt);
+	}
+	function append() {
+		var div = document.querySelector('div');
+		var txt = document.createTextNode(' append a created TextNode ');
+		div.appendChild(txt);
+		console.log(div);
+	}
+	function insert() {
+		var div = document.querySelector('div');
+		var p = document.querySelector('p');
+		var txt = document.createTextNode(' insert before ');
+		div.insertBefore(txt, p);
+		console.log(div);
+	}
+	function remove() {
+		var div = document.querySelector('div');
+		var p = document.querySelector('p');
+		div.removeChild(p);
+		console.log(div);
+	}
+	function replaz() {
+		var div = document.querySelector('div');
+		var p = document.querySelector('p');
+		var txt = document.createTextNode('new');
+		div.replaceChild(txt, p);
+		console.log(div);
+	}
+	function gets() {
+		var div = document.querySelector('div');
+		document.getElementById('gets').innerHTML = "width: " + window.getComputedStyle(div).width + " height: " + window.getComputedStyle(div).height;
+	}
+	function offset() {
+		var div = document.querySelector('div');
+		document.getElementById('offset').innerHTML = "offsetLeft: " + div.offsetLeft + " offsetTop: " + div.offsetTop + " offsetWidth: " + div.offsetWidth + " offsetHeight: " + div.offsetHeight;
 	}
 </script>
 </body>
