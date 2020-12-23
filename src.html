@@ -1,0 +1,45 @@
+<html>
+<head>
+<script src="./vconsole.min.js"></script>                         <script>
+        var vConsole = new VConsole();
+        //console.log("book");                                    </script>
+</head>
+<body>
+	<img src="../book/1.jpg" id="xn" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+<audio controls loop autoplay controlsList="nodownload" id="asmr" style="width: 100%;">
+	<source id="asmrsrc" type="audio/mpeg" src="../nvshen/asmr-two-girls.m4a">
+</audio>
+<audio controls loop autoplay controlsList="nodownload" id="a2" style="width: 100%;">
+</audio>
+<script>
+	var src = document.getElementsByTagName('source');
+	var one = false;
+	console.log('src[0]: ' + src[0].src);
+	var a = document.getElementsByTagName('audio');
+	console.log(a[0].id);
+	console.log(a[0].innerHTML);
+	console.log(a[0].outerHTML);
+	var s = a[0].innerHTML;
+	s = s.substring(s.indexOf('src="') + 5, s.indexOf('.m4a') + 4);
+	console.log('a[0]: ' + s);
+	var j = 0;
+	var timer = setInterval(function(){
+		if(one) {
+			a[1].src = "../nvshen/asmr-sexy-wife.m4a";
+			clearTimeout(timer);
+		}
+		if(j <= 20) {
+			j += 1;
+			console.log('a[1]: ' + a[1].src);
+			if(j === 19) {
+				one = true;
+			}
+		}
+	}, 300);
+	console.log(a[1].outerHTML);
+	var i = document.getElementsByTagName('img');
+	console.log('i[0]:' + i[0].src);
+	var h = document.getElementsByTagName('html');
+	console.log(h[0].innerHTML);
+</script>
+</body>
