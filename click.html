@@ -1,0 +1,9 @@
+<p id = 'clickme' onclick = 'clicked()'>js click simulate</p>
+<script>	
+	var e = document.createEvent("MouseEvents");
+        e.initEvent("click", true, true);
+        document.getElementById("clickme").dispatchEvent(e);
+	function clicked() {
+		alert('clicked');
+	}
+</script>

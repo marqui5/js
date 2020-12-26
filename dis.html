@@ -1,0 +1,14 @@
+<div><p id = 'h'>hello</p></div>
+<div><p id = 'w'>world</p></div>
+<div>
+<div>hello</div>
+<div>world</div>
+</div>
+<script>
+	var div = document.getElementsByTagName('div');
+	for(let i = 0; i < div.length; i++) {
+		div[i].onclick = function () {
+			div[i].style.display = 'none';
+		}
+	}
+</script>
